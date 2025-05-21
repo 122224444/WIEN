@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Web Design Mastery | Adventure Parallax</title>
+  </head>
+  <body>
+    <div class="parallax__container">
+      <img src="https://github.com/WebDesignMastery/Parallax_Website_15-05-23/blob/main/assets/bg-1.jpg?raw=true" alt="parallax" />
+      <img id="bg-2" src="https://assets.onecompiler.app/43jbzdvcv/43jbyzgb4/download.png" alt="parallax" />
+      <h1 id="title">WIEN</h1>
+      <img id="bg-3" src="assets/bg-3.png" alt="parallax" />
+    </div>
+    <section class="about">
+      <div class="image__gallary">
+        <div class="image__card" id="image__card-1">
+          <img src="https://assets.onecompiler.app/43jbzdvcv/43jbyzgb4/Vienna_Houses_Evening_511466_1080x1920.jpg" alt="grid" />
+        </div>
+        <div class="image__card" id="image__card-2">
+          <img src="https://assets.onecompiler.app/43jbzdvcv/43jbyzgb4/austria-vienna-bike-bicycle.jpg" alt="grid" />
+        </div>
+        <div class="image__card" id="image__card-3">
+          <img src="https://assets.onecompiler.app/43jbzdvcv/43jbyzgb4/graben-street-christmas-vps.webp" alt="grid" />
+        </div>
+        <div class="image__card" id="image__card-4">
+          <img src="https://assets.onecompiler.app/43jbzdvcv/43jbyzgb4/228+Visitors+to+Vienna.jpg" alt="grid" />
+        </div>
+      </div>
+      <div class="details">
+        Willkommen auf unserer Seite über Wien!
+Auf dieser Seite findet ihr interessante Informationen über Wien, 
+die Hauptstadt von Österreich. Wien ist eine Stadt mit viel Geschichte, 
+Kunst und Kultur. Wir zeigen euch einige der bekanntesten und schönsten Orte, 
+die man dort besuchen kann – wie berühmte Schlösser, Museen, Parks und historische Gebäude. 
+Unser Ziel ist es, euch die Stadt näherzubringen und Lust auf eine Reise nach Wien zu machen.
+      </div>
+      <div class="footer__btn"<
+        <button><a href="page1.html">Mehr erfahren</a></button>
+      </div>
+    </section>
+
+    <script>
+      var title = document.getElementById("title");
+      var bg_2 = document.getElementById("bg-2");
+      var bg_3 = document.getElementById("bg-3");
+
+      var image_card_1 = document.getElementById("image__card-1");
+      var image_card_2 = document.getElementById("image__card-2");
+      var image_card_3 = document.getElementById("image__card-3");
+      var image_card_4 = document.getElementById("image__card-4");
+
+      document.addEventListener("scroll", (event) => {
+        var positionY = window.scrollY;
+
+        title.style.fontSize = `${100 + positionY * 0.5}px`;
+
+        bg_2.style.top = `-${positionY * 0.5}px`;
+        bg_3.style.top = `-${positionY}px`;
+        bg_3.style.scale = 1 + positionY * 0.001;
+
+        image_card_1.style.transform = `translateY(${
+          positionY * -0.5 + 400
+        }px)`;
+
+        image_card_2.style.transform = `translateY(${positionY * 0.1 + -50}px)`;
+
+        image_card_3.style.transform = `translateY(${
+          positionY * -0.1 + 100
+        }px)`;
+
+        image_card_4.style.transform = `translateY(${
+          positionY * 0.2 + -125
+        }px)`;
+
+        var _newOpacity = positionY * 0.001;
+        if (_newOpacity >= 0 && _newOpacity <= 1) {
+          image_card_1.style.opacity = _newOpacity;
+          image_card_2.style.opacity = _newOpacity;
+          image_card_3.style.opacity = _newOpacity;
+          image_card_4.style.opacity = _newOpacity;
+        }
+      });
+      
+      
+  
+    </script>
+  </body>
+</html>
